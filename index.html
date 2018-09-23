@@ -1,0 +1,547 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FMD-MPU KPI</title>
+    <link rel="stylesheet" href="resources/bootstrap-3.3.6/css/bootstrap.css"/>
+    <link href="resources/css/animate.css" rel="stylesheet" />
+    <link href="resources/css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- Navbar menu -->  
+<div class="row">
+    <div class="col-sm-12">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MPU | KPI</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a id="playStopButton" href="#"><i class="glyphicon glyphicon-play"></i><span class="sr-only">(current)</span></a></li>
+                        <li><a href="#" onclick="showPanel(1)">RPO KPI</a></li>    
+                        <li><a href="#" onclick="showPanel(2)">Safety KPI</a></li>    
+                        <li><a href="#" data-toggle="modal" data-target="#aboutKPIModal">About</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#kpiDataModal">Update KPI Data</a>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</div>  
+
+<div class="row">
+    <!-- Chart Legent -->
+    <div class="col-sm-3">
+        <div class="row">
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Legend</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">RPO Completion</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-red">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Poor (0 - 30)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-orange">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Good (31 - 39)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-yellow">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Excellent (40 - 49)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-green">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Outstanding (51 - 100)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">MTV / SSV</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-red">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Poor (51 - 100)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-orange">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Good (36 - 49)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-yellow">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Excellent (20 - 35)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-green">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Outstanding (0 - 19)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">NDE / BI / VO</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-red">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Poor (0 - 70)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-orange">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Good (71 - 80)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-yellow">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Very Good(81 - 90)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-green">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Excellent (91 - 95)
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <span class="label label-drkgreen">&nbsp;</span>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                Outstanding (96 - 100)
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+
+    <!-- KPI Chart -->
+    <div class="col-sm-8">
+        <div class="row">
+
+
+        <!-- RPO, WURTUR, MTV, and SSI -->
+            <div class="panel panel-default  animated fadeIn" id="panel1">
+                <div class="panel-heading">
+                    <h3 class="panel-title">KPI</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">RPO Completion</h3>
+                                </div>
+                                <div class="panel-body" style="display: block" >
+                                    <div class="row" >
+                                        <div class="col-sm-6">
+                                            <div class="wrapper" >
+                                                <div class="box">
+                                                    <div id="kpiLumpsum" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiLSLabel"></label>
+                                                    </center>                                                                
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiWURTUR" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiWURTURLabel"></label>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Safety KPI</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiMTV" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiMTVLabel"></label>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiSSI" class="gauge"></div>
+                                                </div>
+                                                <center>
+                                                    <label for="kpiSSILabel"></label>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                
+                </div>
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+        <!-- NDE, BI (90%, 100%) -->
+            <div class="panel panel-default animated fadeIn" id="panel2">
+                <div class="panel-heading">
+                    <h3 class="panel-title">KPI</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">NDE</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+
+                                                <div class="wrapper" >
+                                                    <div class="box">
+                                                        <div id="kpiNDENinety" class="gauge" ></div>
+                                                        <center>
+                                                            <label for="kpiNDENinetyLabel"></label>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiNDEHundred" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiNDEHundredLabel"></label>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">BI</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiBINinety" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiBINinetyLabel"></label>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiBIHundred" class="gauge"></div>
+                                                </div>
+                                                <center>
+                                                    <label for="kpiBIHundredLabel"></label>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Variation Order</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="wrapper">
+                                                <div class="box">
+                                                    <div id="kpiVO" class="gauge"></div>
+                                                    <center>
+                                                        <label for="kpiVOLabel"></label>
+                                                    </center>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-caption">
+                </div>
+            </div>
+            </div>
+             
+
+        </div>
+    </div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+    
+
+<!--KPI About Modal -->
+<div class="modal fade" id="aboutKPIModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h2 class="modal-title" id="myModalLabel">About</h2>
+                </div>
+                <div class="modal-body">
+	            <center>
+                      <h4 class="animated bounceInDown">
+                          Facilities Maintenance Division / Major Projects Unit<br/>
+                          Key Performance Indicator (KPI) v.1.0
+                      </h4>
+                      <h4 class="animated bounceInUp">     
+                          Designed / Developed by:<br />
+                          U&TSD Computer Support Group<br />
+                      </h4>
+		    </center>    		
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+        </div>
+    </div>
+</div>
+
+    
+<!--KPI Data Modal -->
+<div class="modal fade" id="kpiDataModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Update KPI Data</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <!-- Lumpsum, WURTUR, MTV, SSI  -->
+                        <div class="col-sm-6">
+                            <div class="row">                                
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="rpoLumpSumData">RPO - Lumpsum</label>
+                                        <input type="number" class="form-control" id="rpoLumpSumData" placeholder="Lumpsum Data">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="rpoWURTURData">RPO - WURTUR</label>
+                                        <input type="number" class="form-control" id="rpoWURTURData" placeholder="WURTUR Data">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="mtvData">Motor Traffic Violation</label>
+                                        <input type="number" class="form-control" id="mtvData" placeholder="Motor Traffic Violation Data">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="ssiData">Site Safety Inspection</label>
+                                        <input type="number" class="form-control" id="ssiData" placeholder="Site Safety Inspection Data">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NDE(90,100), BI(90, 100) -->
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="ndeNinetyData">NDE(90%)</label>
+                                        <input type="number" class="form-control" id="ndeNinetyData" placeholder="NDE 90%">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="ndeHundredData">NDE(100%)</label>
+                                        <input type="number" class="form-control" id="ndeHundredData" placeholder="NDE 100%">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="biNinetyData">BI(90%)</label>
+                                        <input type="number" class="form-control" id="biNinetyData" placeholder="BI 90%">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="biHundredData">BI(100%)</label>
+                                        <input type="number" class="form-control" id="biHundredData" placeholder="BI 100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            
+                            <div class="form-group">
+                                <label for="voData">Variation Order</label>
+                                <input type="number" class="form-control" id="voData" placeholder="Variation Order">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="submitKPIButton" data-dismiss="modal" class="btn btn-primary">Update Data</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="resources/js/kpi.js"></script>
+<script type="text/javascript" src="resources/js/raphael-2.1.4.min.js"></script>
+<script type="text/javascript" src="resources/js/justgage.js"></script>  
+<script type="text/javascript" src="resources\js\jquery-2.2.4.min.js"></script>
+<script src="resources/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
